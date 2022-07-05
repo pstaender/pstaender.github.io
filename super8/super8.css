@@ -1,0 +1,162 @@
+:root {
+  --color-background: black;
+  --color-text: white;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* otherwise you'll see a blue highlighted border in fullscreen */
+*:focus {
+  outline: 0 !important;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+html,
+body {
+  background-color: var(--color-background);
+  line-height: 1.5em;
+}
+video,
+.filter {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  pointer-events: none;
+}
+video {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+#video {
+  z-index: 10;
+  pointer-events: inherit;
+  /* can be seen in iframe */
+  background: var(--color-background);
+}
+#video.finished {
+  opacity: 0;
+}
+#video-scratches {
+  mix-blend-mode: multiply;
+  z-index: 30;
+  object-fit: cover;
+  opacity: 0.5;
+}
+#video-grain {
+  mix-blend-mode: overlay;
+  z-index: 20;
+  object-fit: cover;
+}
+#blur-filter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+}
+#bw-filter {
+  z-index: 40;
+}
+body:not(.bw-film) #bw-filter {
+  display: none;
+}
+form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+body.dragover form::after {
+  content: "Drop your video file here";
+  border: 5px dashed white;
+  margin: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 31px);
+  height: calc(100% - 30px);
+  background-color: rgba(0, 0, 0, 0.1);
+  display: grid;
+  place-content: center;
+  font-size: 2rem;
+  color: white;
+  z-index: 20;
+}
+em {
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+    Liberation Mono, monospace;
+  font-style: normal;
+  font-weight: bold;
+}
+.loading-indicator {
+  position: absolute;
+  top: calc(50% - 0.5rem);
+  width: 100%;
+  left: 0%;
+  text-align: center;
+  z-index: 50;
+  display: none;
+  opacity: 0.75;
+}
+.help-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  pointer-events: none;
+}
+ul.help {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(2px);
+  padding: 10px 15px;
+  border-radius: 5px;
+  z-index: 10000;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+ul.help li {
+  list-style: none;
+  padding: 0;
+}
+body.show-help .help-box {
+  pointer-events: inherit;
+}
+body.show-help .help {
+  opacity: 1;
+}
+body.loading .loading-indicator {
+  display: block;
+}
+body.loading video {
+  opacity: 0;
+}
+
+#video-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-indent: -110vw;
+  z-index: 0;
+}
+body.dragover #video-input {
+  z-index: 100;
+}

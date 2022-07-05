@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>super8 retro</title>
+    <script src="./super8.js" defer></script>
+    <link rel="stylesheet" href="./super8.css" />
+  </head>
+  <body ondragover="this.classList.add('dragover');" class="loading">
+    <div class="filter" id="blur-filter"></div>
+    <div class="filter" id="bw-filter"></div>
+
+    <div class="help-box">
+      <ul class="help">
+        <li><em>h</em> shows/hides this <b>h</b>elp</li>
+        <li><em>s</em> plays projector <b>s</b>ound (default: <i>on</i>)</li>
+        <li>
+          <em>c</em> shows/hides video <b>c</b>ontrols (default: <i>on</i>)
+        </li>
+        <li><em>l</em> plays video in <b>l</b>oop-mode (default: <i>on</i>)</li>
+        <li>
+          <em>m</em> <b>m</b>utes/unmutes the original video sound (default:
+          <i>on</i>)
+        </li>
+        <li><em>b</em> plays video in <b>b</b>/w-mode (default: <i>off</i>)</li>
+        <li><em>+</em> / <em>-</em> blurriness (default: <i>2px</i>)</li>
+        <li><em>[</em> / <em>]</em> contrast and levels (only for bw-mode)</li>
+        <div>
+          <br />
+          Drop your custom video file on the video area behind this help box.<br />Please
+          wait once after all assets are initially loaded.
+        </div>
+      </ul>
+    </div>
+
+    <video id="video-grain" muted loop>
+      <source src="grains/16mm_course.webm" type="video/ogg" />
+    </video>
+
+    <video id="video-scratches" muted loop>
+      <source src="grains/16mm_scratched.webm" type="video/ogg" />
+    </video>
+
+    <video id="video" controls="controls" muted loop>
+      <source src="example.webm" type="video/ogg" />
+    </video>
+
+    <form>
+      <input id="video-input" type="file" accept="video/*" />
+    </form>
+
+    <audio
+      id="projector-sound"
+      preload="auto"
+      src="projector_sound/projector_sound.ogg"
+    ></audio>
+  </body>
+</html>
