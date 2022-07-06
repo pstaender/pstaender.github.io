@@ -116,8 +116,8 @@ const onMediaLoaded = (ev) => {
 };
 document.querySelectorAll("video").forEach((e) => {
   e.classList.add("unloaded");
-  // e.addEventListener("loadeddata", onMediaLoaded);
-  e.addEventListener("suspend", onMediaLoaded);
+  e.addEventListener("loadeddata", onMediaLoaded);
+  // e.addEventListener("suspend", onMediaLoaded);
 });
 
 document.getElementById("video-input").addEventListener("drop", (event) => {
