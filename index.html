@@ -4,7 +4,6 @@
     <title>github page of philipp ständer</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://cdn.jsdelivr.net/npm/rainbow-cat@latest/rainbow-cat.js"></script>
     <style>
       :root {
         color-scheme: light dark;
@@ -54,7 +53,7 @@
           <h3><a href="super8/index.html">Super 8 Projector</a></h3>
         </li>
         <li>
-          <h3><a href="focuseditor/editor.html">Focus Editor</a></h3>
+          <h3><a href="focuseditor/editor">Focus Editor</a></h3>
         </li>
         <li>
           <h3>
@@ -63,9 +62,14 @@
             >
           </h3>
         </li>
-        <rainbow-cat/>
+        <rainbow-cat />
       </ul>
     </main>
     <footer>projects by philipp staender</footer>
+    <script type="module">
+      import { bubbleCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+
+      new bubbleCursor();
+    </script>
   </body>
 </html>
